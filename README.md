@@ -1,6 +1,6 @@
-# People Tracking Camera with Servo
+# Person Tracking Camera with Servo
 
-Welcome to the **People Tracking Camera with Servo** project! 🎥🤖 This project utilizes a camera and servo motor to track moving objects in a predefined field.
+Welcome to the **Person Tracking Camera with Servo** project! 🎥🤖 This project utilizes a camera and servo motor to track moving objects in a predefined field.
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -50,7 +50,7 @@ This project is designed to demonstrate how a camera can be used to track indivi
     ```
 5. Clone this repository
     ```bash
-    git clone https://github.com/yourusername/people-tracking-camera.git
+    git clone https://github.com/Sans-coding-the-skeleton/Person_Tracking_Camera_with_servo.git
     cd people-tracking-camera
     ```
 6. Create a virtual environment and install Python packages
