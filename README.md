@@ -33,13 +33,12 @@ This project is designed to demonstrate how a camera can be used to track indivi
 1. Connect the hardware components as described in the documentation.
 2. Run the main script:
    ```bash
-   python main.py
+   python tracking.py
    ```
 
 ## Code Structure
-- `main.py`: The main script for running the application.
-- `servo.py`: Contains the code for controlling the servo motor.
-- `camera.py`: Handles the camera functionalities.
+- `tracking.py`: The main script for running the application.
+- `calibrate.py`: Contains the code for calibrating the servo motor.
 
 ## Contributing
 We welcome contributions! Please follow these steps:
