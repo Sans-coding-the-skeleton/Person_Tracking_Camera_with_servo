@@ -16,8 +16,8 @@ This project is designed to demonstrate how a camera can be used to track indivi
 
 ## Components
 - **Camera**: Used for capturing video feed.
-- **Servo Motor**: Responsible for tilting and rotating the camera.
-- **Microcontroller**: Controls the camera and servo motor.
+- **Servo Motor**: Responsible for rotating the camera.
+- **RPI**: Controls the camera and servo motor.
   
 ## Installation
 1. Clone the repository:
