@@ -19,15 +19,53 @@ This project is designed to demonstrate how a camera can be used to track indivi
 - **Servo Motor**: Responsible for rotating the camera.
 - **RPI**: Controls the camera and servo motor.
   
-## Installation
-1. Clone the repository:
+## Software Installation
+
+1. **Prepare your Raspberry Pi**  
+   Install Raspberry Pi OS (64‑bit recommended) and update:
    ```bash
-   git clone https://github.com/Sans-coding-the-skeleton/People_Tracking_Camera_with_servo.git
-   ```
-2. Install the necessary libraries:
-   ```bash
-   pip install -r requirements.txt
-   ```
+   sudo apt update && sudo apt upgrade -y
+
+Enable the camera and GPIO
+bash
+
+sudo raspi-config
+
+    Interface Options → Camera → Enable
+
+    (Optional) Interface Options → SPI/I2C → Enable
+
+Install system dependencies
+bash
+
+sudo apt install python3 python3-pip python3-venv git pigpio
+
+Start the pigpio daemon
+The pigpio library communicates with a background daemon. Install and enable it:
+bash
+
+sudo systemctl enable pigpiod
+sudo systemctl start pigpiod
+
+Verify it’s running:
+bash
+
+sudo systemctl status pigpiod
+
+Clone this repository
+bash
+
+git clone https://github.com/yourusername/people-tracking-camera.git
+cd people-tracking-camera
+
+Create a virtual environment and install Python packages
+bash
+
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+
+
 
 ## Usage
 1. Connect the hardware components as described in the documentation.
