@@ -54,14 +54,11 @@ This project is designed to demonstrate how a camera can be used to track indivi
     cd ~/Person_Tracking_Camera_with_servo
     pip install pigpio
     ```
-5. Run pigpio
-    ```bash
-    sudo pigpiod
-    ```
 ## Usage
 1. Connect the hardware components as described in the documentation.
 2. Run the main script:
    ```bash
+   sudo pigpiod
    source venv/bin/activate
    python tracking.py
    ```
