@@ -33,19 +33,7 @@ This project is designed to demonstrate how a camera can be used to track indivi
     ```bash
     sudo apt install python3 python3-pip python3-venv git opencv-data
     ```
-3. For pigiod you will need to download it from source
-    ```bash
-    sudo apt-get --yes --allow-change-held-packages install --no-install-recommends python3-setuptools python3-full
-    wget https://github.com/joan2937/pigpio/archive/refs/tags/v79.tar.gz
-    tar zxf v79.tar.gz
-    cd pigpio-79
-    make
-    sudo make install
-    sudo ldconfig
-    sudo systemctl daemon-reload
-    sudo systemctl enable --now pigpiod
-    ```
-4. Clone this repository
+3. Clone this repository
     ```bash
     cd ~/
     git clone https://github.com/Sans-coding-the-skeleton/Person_Tracking_Camera_with_servo.git
@@ -57,6 +45,7 @@ This project is designed to demonstrate how a camera can be used to track indivi
     source venv/bin/activate
     pip install -r requirements.txt
     ```
+5. 
 ## Usage
 1. Connect the hardware components as described in the documentation.
 2. Run the main script:
