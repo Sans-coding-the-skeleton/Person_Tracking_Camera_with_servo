@@ -35,7 +35,6 @@ This project is designed to demonstrate how a camera can be used to track indivi
     ```
 3. Clone this repository
     ```bash
-    cd ~/
     git clone https://github.com/Sans-coding-the-skeleton/Person_Tracking_Camera_with_servo.git
     cd Person_Tracking_Camera_with_servo
     ```
