@@ -51,7 +51,7 @@ This project is designed to demonstrate how a camera can be used to track indivi
 5. Clone this repository
     ```bash
     git clone https://github.com/Sans-coding-the-skeleton/Person_Tracking_Camera_with_servo.git
-    cd Person_tracking_camera_with_servo
+    cd Person_Tracking_Camera_with_servo
     ```
 6. Create a virtual environment and install Python packages
     ```bash
