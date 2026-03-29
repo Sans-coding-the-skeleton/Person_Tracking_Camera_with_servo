@@ -53,6 +53,7 @@ This project is designed to demonstrate how a camera can be used to track indivi
     make
     sudo make install
     cd ~/Person_Tracking_Camera_with_servo
+    pip install pigpio
     ```
 5. Run pigpio
     ```bash
