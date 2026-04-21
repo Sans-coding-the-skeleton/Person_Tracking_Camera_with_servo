@@ -44,9 +44,7 @@ if face_cascade.empty():
     exit()
 
 # ========== TRACKING PARAMETERS ==========
-# For 640px width, use larger dead zone (e.g., 80px ≈ same proportion as 40px on 320px)
 DEAD_ZONE = 100
-# Kp adjusted for larger pixel error: 0.005 * (320/640) = 0.0025
 Kp = 0.0002
 MAX_SPEED = 0.05
 UPDATE_INTERVAL = 0.2
@@ -55,9 +53,12 @@ NO_DETECTION_TIMEOUT = 2.0
 last_update = time.time()
 last_face_time = time.time()
 smoothed_face_x = None
-
-# Scale factor for detection (full width / detection width)
 scale = 640 / 320   # = 2.0
+
+# ========== WINDOW SETUP ==========
+WINDOW_NAME = "Face Tracking (640x480)"
+cv2.namedWindow(WINDOW_NAME, cv2.WINDOW_NORMAL)
+fullscreen = False
 
 try:
     while True:
@@ -75,20 +76,16 @@ try:
 
         if len(faces) > 0:
             last_face_time = time.time()
-            # Largest face in the small frame
             (x_small, y_small, w_small, h_small) = max(faces, key=lambda f: f[2]*f[3])
-            # Scale to full frame
             x = int(x_small * scale)
             w = int(w_small * scale)
             face_center_x = x + w//2
 
-            # Smooth face position
             if smoothed_face_x is None:
                 smoothed_face_x = face_center_x
             else:
                 smoothed_face_x = 0.7 * smoothed_face_x + 0.3 * face_center_x
 
-            # Draw on full frame
             y = int(y_small * scale)
             h = int(h_small * scale)
             cv2.rectangle(frame, (x, y), (x+w, y+h), (0,255,0), 2)
@@ -99,7 +96,6 @@ try:
 
             if abs(error) > DEAD_ZONE:
                 speed_cmd = -Kp * error
-                # Limit speed
                 if speed_cmd > MAX_SPEED:
                     speed_cmd = MAX_SPEED
                 elif speed_cmd < -MAX_SPEED:
@@ -117,9 +113,18 @@ try:
             set_speed(speed_cmd)
             last_update = now
 
-        cv2.imshow("Face Tracking (640x480)", frame)
-        if cv2.waitKey(1) & 0xFF == ord('q'):
+        cv2.imshow(WINDOW_NAME, frame)
+
+        # Handle keyboard input
+        key = cv2.waitKey(1) & 0xFF
+        if key == ord('q'):
             break
+        elif key == ord('f'):
+            fullscreen = not fullscreen
+            if fullscreen:
+                cv2.setWindowProperty(WINDOW_NAME, cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
+            else:
+                cv2.setWindowProperty(WINDOW_NAME, cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_NORMAL)
 
 except KeyboardInterrupt:
     pass
